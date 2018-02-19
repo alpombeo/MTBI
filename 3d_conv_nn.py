@@ -121,9 +121,11 @@ def aec_make_model(input_data,
 
 
 folder_list = ['AK', 'FA', 'MD', 'MK', 'RK']
-dir_name = 'home/aa3250/mtbi/data'
+dir_name = 'home/aa3250/mtbi/data/'
 full_data, labels = load_data(folder_list, dir_name)
 mask_names = ['CC_Body_mask.mat', 'CC_Genu_mask.mat', 'CC_Splenium_mask.mat']
+
+pickle.dump(full_data, open("data.p", "wb"))
 
 inputs_ = tf.placeholder(tf.float32, (1,182,218,182,1), name="input")
 targets_ = tf.placeholder(tf.float32, (1,182,218,182,1), name="target")
