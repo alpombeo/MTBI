@@ -121,7 +121,7 @@ def aec_make_model(input_data,
 
 
 folder_list = ['AK', 'FA', 'MD', 'MK', 'RK']
-dir_name = 'home/aa3250/mtbi/data/'
+dir_name = '/home/aa3250/mtbi/data/'
 full_data, labels = load_data(folder_list, dir_name)
 mask_names = ['CC_Body_mask.mat', 'CC_Genu_mask.mat', 'CC_Splenium_mask.mat']
 
