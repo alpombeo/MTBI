@@ -36,7 +36,7 @@ def load_data(folder_list, dir_name, dim = [-1,182,218,182,1]):
     labels_old= np.hstack( ( np.ones((42,)), np.zeros((23,)) ) )
     labels = np.hstack( ( labels_new, labels_old ) )
     fresh = 1
-    i = 0
+
     for folder in folder_list:
         os.chdir(dir_name + folder)
         print('Starting on folder ' + folder)
@@ -53,9 +53,6 @@ def load_data(folder_list, dir_name, dim = [-1,182,218,182,1]):
                 data_temp2 = np.reshape(data_temp2, dim)
                 data_temp2 = np.asarray(data_temp2)
                 data = np.concatenate([data, data_temp2], 0)
-                i = i+1
-                if i > 5:
-                    return data, labels
                 print(data.shape)
 
 
@@ -124,7 +121,7 @@ def aec_make_model(input_data,
 
 
 folder_list = ['AK', 'FA', 'MD', 'MK', 'RK']
-dir_name = '/Users/alpombeo/Documents/Docs/NYU/RESEARCH/MTBI/'
+dir_name = 'home/aa3250/mtbi/data'
 full_data, labels = load_data(folder_list, dir_name)
 mask_names = ['CC_Body_mask.mat', 'CC_Genu_mask.mat', 'CC_Splenium_mask.mat']
 
